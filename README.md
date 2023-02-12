@@ -20,7 +20,7 @@ Prerequisites:
 If these conditions are not met just update docker-compose file by your needs before running the image.
 
 1. Clone the repository
-   - `git clone ...`
+   - `git clone git@github.com:devices-fc0-org/esp-dev-ssh.git`
 2. build docker image
    - `docker build -t fc0/esp-dev-ssh .` 
 3. run docker-compose
