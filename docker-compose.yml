@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  esp-dev-ssh:
+    image: fc0/esp-dev-ssh:latest
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "50m"
+    container_name: espdevssh
+    hostname: espdevssh
+    ports:
+      - '2223:22'
+    volumes:
+      - ~/.ssh:/home/sshuser/.ssh
+      - espdevssh_src:/home/sshuser/src
+      - espdevssh_cache:/home/sshuser/.cache
+      - espdevssh_git:/home/sshuser/.git
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+volumes:
+  espdevssh_cache:
+    driver: local
+  espdevssh_src:
+    driver: local
+  espdevssh_git:
+    driver: local
